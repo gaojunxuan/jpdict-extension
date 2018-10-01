@@ -1,0 +1,27 @@
+{
+    "name": "JPDict for Chrome",
+    "version": "1.0",
+    "description": "JPDict extension for Chrome",
+    "permissions": ["storage", "declarativeContent","activeTab"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "icons":{
+        "128":"logo.128.png"
+    },
+    "manifest_version": 2,
+    "browser_action": {    
+        "default_popup": "popup.html",  
+        "default_title": "JPDict",
+        "default_icon": "logo.png"
+    },
+    "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["contentscript.css"],
+      "js": ["contentscript.js","jquery-3.3.1.min.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }]
+}
